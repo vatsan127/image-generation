@@ -37,6 +37,13 @@ git clone https://github.com/vatsan127/image-generation.git
 cd image-generation
 ```
 
+2. Build the Docker image:
+
+```bash
+docker build -t image-generator .
+docker run --name image-generator -p 5000:5000 -e GEMINI_API_KEY=<YOUR_API_KEY> image-generator
+```
+
 ## Usage
 
 1. Navigate to http://localhost:5000 in your browser
@@ -65,8 +72,8 @@ image-generator/
 ## Environment Variables
 
 - Required:
-    **GEMINI_API_KEY**: Your Google Gemini API key
+  **GEMINI_API_KEY**: Your Google Gemini API key
 
 - Optional:
-    **FLASK_ENV**: Set to production by default
-    **FLASK_APP**: Set to app.py by default
+  **FLASK_ENV**: Set to production by default, 
+  **FLASK_APP**: Set to app.py by default
