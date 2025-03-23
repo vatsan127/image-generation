@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Image - PDF to Image Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 2rem;
+        }
+
+        .result-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .prompt-container {
+            background-color: #f1f3f5;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h1 class="text-center mb-4">Generated Image for Your Course</h1>
+
+            <div class="result-container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2 class="h4">Your Course Image is Ready!</h2>
+                    <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">Create Another</a>
+                </div>
+
+                <div class="image-container">
+                    <img src="data:image/png;base64,{{ img_base64 }}" alt="Generated course image"
+                         class="img-fluid rounded shadow">
+                </div>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <a href="{{ url_for('download_image', session_id=session_id) }}" class="btn btn-primary">Download
+                        Image</a>
+                </div>
+
+                <div class="prompt-container mt-4">
+                    <h3 class="h5 mb-2">Generated Prompt</h3>
+                    <p class="text-muted small">This is the prompt that was used to generate the image:</p>
+                    <pre class="p-3 bg-light rounded"><code>{{ prompt }}</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center mt-3 mb-4">
+        <p class="text-muted">This application uses Google's Gemini API to generate images based on PDF content.</p>
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to Image Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 2rem;
+        }
+        .upload-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        .preview-container {
+            background-color: #e9ecef;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="text-center mb-4">PDF to Image Generator</h1>
+
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <div class="upload-container">
+                    <h2 class="h4 mb-3">Upload a PDF to Generate an Image</h2>
+                    <form action="{{ url_for('index') }}" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="pdf_file" class="form-label">Select a PDF file containing your course content</label>
+                            <input type="file" class="form-control" id="pdf_file" name="pdf_file" accept=".pdf" required>
+                            <div class="form-text">The system will analyze the first few pages to generate a relevant image.</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Generate Image</button>
+                    </form>
+                </div>
+
+                <div class="preview-container">
+                    <h3 class="h5 mb-3">Preview</h3>
+                    <img src="https://via.placeholder.com/500x300?text=Your+Course+Image+Will+Appear+Here"
+                         alt="Sample placeholder" class="img-fluid rounded">
+                    <p class="mt-3 text-muted">Your generated image will appear after processing</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center mt-5 mb-4">
+            <p class="text-muted">This application uses Google's Gemini API to generate images based on PDF content.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
