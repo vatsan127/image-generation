@@ -53,7 +53,7 @@ docker run --name image-generator -p 5000:5000 -e GEMINI_API_KEY=<YOUR_API_KEY> 
 5. Preview the generated image
 6. Click "Download" to save the image
 
-- For best results:
+### For best results:
     - Use PDFs with clear, concise content
     - Ensure first page has key content
     - Keep text brief and well-formatted
