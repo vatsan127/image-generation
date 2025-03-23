@@ -39,12 +39,12 @@ cd image-generation
 
 ## Usage
 
-- Navigate to http://localhost:5000 in your browser
-- Click "Choose File" and select a PDF
-- Click "Upload" to start processing
-- Wait for the image generation to complete
-- Preview the generated image
-- Click "Download" to save the image
+1. Navigate to http://localhost:5000 in your browser
+2. Click "Choose File" and select a PDF
+3. Click "Upload" to start processing
+4. Wait for the image generation to complete
+5. Preview the generated image
+6. Click "Download" to save the image
 
 - For best results:
     - Use PDFs with clear, concise content
@@ -65,10 +65,8 @@ image-generator/
 ## Environment Variables
 
 - Required:
-
     **GEMINI_API_KEY**: Your Google Gemini API key
 
 - Optional:
-
     **FLASK_ENV**: Set to production by default
     **FLASK_APP**: Set to app.py by default
