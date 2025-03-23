@@ -53,20 +53,22 @@ cd image-generation
 
 ## Project Structure
 
+```
 image-generator/
 ├── app.py # Main Flask application
 ├── Dockerfile # Docker configuration
 ├── requirements.txt # Python dependencies
 ├── templates/ # HTML templates
 └── .gitignore # Git ignore rules
+```
 
 ## Environment Variables
 
 - Required:
 
-**GEMINI_API_KEY**: Your Google Gemini API key
+    **GEMINI_API_KEY**: Your Google Gemini API key
 
 - Optional:
 
-**FLASK_ENV**: Set to production by default
-**FLASK_APP**: Set to app.py by default
+    **FLASK_ENV**: Set to production by default
+    **FLASK_APP**: Set to app.py by default
